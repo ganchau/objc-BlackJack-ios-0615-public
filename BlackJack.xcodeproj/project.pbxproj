@@ -26,6 +26,9 @@
 		BDBFBA071B17D69A00ACB95B /* FISPlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFBA061B17D69A00ACB95B /* FISPlayingCardDeck.m */; };
 		BDBFBA0A1B180F9A00ACB95B /* FISDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFBA091B180F9A00ACB95B /* FISDeck.m */; };
 		BDBFBA0D1B18761100ACB95B /* FISBlackjackGame.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBFBA0C1B18761100ACB95B /* FISBlackjackGame.m */; };
+		440FE7671946513900C45D87 /* PlayingCardDeckSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 440FE7661946513900C45D87 /* PlayingCardDeckSpec.m */; };
+		440FE77A1949037A00C45D87 /* BlackjackGameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 440FE7791949037A00C45D87 /* BlackjackGameSpec.m */; };
+		E2FEB8371B14F19C004A0BCC /* PlayingCardSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FEB8361B14F19C004A0BCC /* PlayingCardSpec.m */; };
 		F2972237E7DA49A6905DFEE3 /* libPods-BlackJackTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5005EF7FF844B7FA7EAB2DC /* libPods-BlackJackTests.a */; };
 /* End PBXBuildFile section */
 
@@ -55,9 +58,8 @@
 		440FE75019464F8000C45D87 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		440FE75819464F8000C45D87 /* BlackJackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlackJackTests-Info.plist"; sourceTree = "<group>"; };
 		440FE75A19464F8000C45D87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		440FE75C19464F8000C45D87 /* DeckTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeckTests.m; sourceTree = "<group>"; };
-		440FE7661946513900C45D87 /* PlayingCardDeckTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeckTests.m; sourceTree = "<group>"; };
-		440FE7791949037A00C45D87 /* BlackjackGameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackjackGameTests.m; sourceTree = "<group>"; };
+		440FE7661946513900C45D87 /* PlayingCardDeckSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeckSpec.m; sourceTree = "<group>"; };
+		440FE7791949037A00C45D87 /* BlackjackGameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackjackGameSpec.m; sourceTree = "<group>"; };
 		A70BF232F0013BAA10CE4E9D /* Pods-BlackJackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJackTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlackJackTests/Pods-BlackJackTests.release.xcconfig"; sourceTree = "<group>"; };
 		BDBFB9FF1B17CF8F00ACB95B /* FISCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISCard.h; sourceTree = "<group>"; };
 		BDBFBA001B17CF8F00ACB95B /* FISCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISCard.m; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		BDBFBA091B180F9A00ACB95B /* FISDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISDeck.m; sourceTree = "<group>"; };
 		BDBFBA0B1B18761100ACB95B /* FISBlackjackGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISBlackjackGame.h; sourceTree = "<group>"; };
 		BDBFBA0C1B18761100ACB95B /* FISBlackjackGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISBlackjackGame.m; sourceTree = "<group>"; };
+		E2FEB8361B14F19C004A0BCC /* PlayingCardSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardSpec.m; sourceTree = "<group>"; };
 		E5005EF7FF844B7FA7EAB2DC /* libPods-BlackJackTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlackJackTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0CD3D6DB35E96336DC638D8 /* Pods-BlackJackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackJackTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlackJackTests/Pods-BlackJackTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,9 +168,9 @@
 		440FE75619464F8000C45D87 /* BlackJackTests */ = {
 			isa = PBXGroup;
 			children = (
-				440FE7791949037A00C45D87 /* BlackjackGameTests.m */,
-				440FE75C19464F8000C45D87 /* DeckTests.m */,
-				440FE7661946513900C45D87 /* PlayingCardDeckTests.m */,
+				E2FEB8361B14F19C004A0BCC /* PlayingCardSpec.m */,
+				440FE7791949037A00C45D87 /* BlackjackGameSpec.m */,
+				440FE7661946513900C45D87 /* PlayingCardDeckSpec.m */,
 				440FE75719464F8000C45D87 /* Supporting Files */,
 			);
 			path = BlackJackTests;
@@ -336,9 +339,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				440FE75D19464F8000C45D87 /* DeckTests.m in Sources */,
-				440FE77A1949037A00C45D87 /* BlackjackGameTests.m in Sources */,
-				440FE7671946513900C45D87 /* PlayingCardDeckTests.m in Sources */,
+				440FE77A1949037A00C45D87 /* BlackjackGameSpec.m in Sources */,
+				E2FEB8371B14F19C004A0BCC /* PlayingCardSpec.m in Sources */,
+				440FE7671946513900C45D87 /* PlayingCardDeckSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
