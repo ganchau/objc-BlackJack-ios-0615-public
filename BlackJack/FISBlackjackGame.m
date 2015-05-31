@@ -10,6 +10,7 @@
 
 @implementation FISBlackjackGame
 
+// designated initializer
 - (instancetype)init
 {
     self = [super init];
@@ -23,6 +24,18 @@
     }
         
     return self;
+}
+
+- (instancetype)initUsingDeck:(FISPlayingCardDeck *)deck
+{
+    self = [self init];
+    
+    if (self) {
+        _playingCardDeck = deck;
+    }
+    
+    return self;
+    
 }
 
 - (BOOL)isBlackjack
@@ -44,24 +57,24 @@
 
 - (NSNumber *)handScore
 {
-    _handScore = @0;
-    NSUInteger aceCards = 0;
+    _handScore = @0;            // reset score to 0
+    NSUInteger aceCards = 0;    // counter for Ace cards
     
     for (FISPlayingCard *card in self.hand) {
-        if ([card.rank integerValue] == 1) {
+        if ([card.rank integerValue] == 1) {   // if Ace card encountered, increment counter
             aceCards++;
-            _handScore = @([_handScore integerValue] + 1);
-        } else if ([card.rank integerValue] > 10) {
-            _handScore = @([_handScore integerValue] + 10);
-        } else {
+            _handScore = @([_handScore integerValue] + 1);  // add 1 to the hand score
+        } else if ([card.rank integerValue] > 10) {         // if Face card encountered,
+            _handScore = @([_handScore integerValue] + 10); // add 10 to the hand score
+        } else {                                            // otherwise, add the rank value to the hand score
             _handScore = @([_handScore integerValue] + [card.rank integerValue]);
         }
     }
     
-    if (aceCards > 0) {
+    if (aceCards > 0) {     // if there are any Ace card found
         for (NSUInteger i=0; i<=aceCards; i++) {
-            if ([_handScore integerValue] + 10 <= 21) {
-                _handScore = @([_handScore integerValue] + 10);
+            if ([_handScore integerValue] + 10 <= 21) {         // if adding 10 (in addition to 1 previously) doesn't bust
+                _handScore = @([_handScore integerValue] + 10); // then add 10 to the handscore, otherwise leave it be
             }
         }
     }

@@ -66,7 +66,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Rank:%@ Suit:%@", [FISPlayingCard validRanks][[self.rank integerValue]], self.suit];
+    return [NSString stringWithFormat:@"%@%@", [FISPlayingCard validRanks][[self.rank integerValue]], self.suit];
 }
 
 @end

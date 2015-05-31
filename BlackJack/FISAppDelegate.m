@@ -11,6 +11,20 @@
 
 @implementation FISAppDelegate
 
+- (void)outputResultsForPlayer:(FISBlackjackGame *)player
+{
+    static NSUInteger playerIndex = 1;  // static variable to keep track of current player # for NSLog
+    NSString *handString = @"";
+    if (player.isBlackjack) {
+        handString = [player.hand componentsJoinedByString:@" "];
+        NSLog(@"\nPlayer %lu: BLACK JACK!\nHand: %@\n\n", (unsigned long)playerIndex, handString);
+    } else if (player.isBusted) {
+        handString = [player.hand componentsJoinedByString:@" "];
+        NSLog(@"\nPlayer %lu: BUSTED!\nHand score: %@\nHand: %@\n\n", (unsigned long)playerIndex, player.handScore, handString);
+    }
+    playerIndex++;   // increment to next player #
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -18,19 +32,25 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    FISBlackjackGame *game = [[FISBlackjackGame alloc] init];
+    // initialize a new game
+    FISBlackjackGame *player1 = [[FISBlackjackGame alloc] init];
     
-    [game deal];
+    // initialize a second game using the first game's deck
+    FISBlackjackGame *player2 = [[FISBlackjackGame alloc] initUsingDeck:player1.playingCardDeck];
     
-    while (!game.isBusted && !game.isBlackjack) {
-        [game hit];
+    [player1 deal];
+    [player2 deal];
+    
+    while (!player1.isBusted && !player1.isBlackjack) {
+        [player1 hit];
+    }
+    while (!player2.isBusted && !player2.isBlackjack) {
+        [player2 hit];
     }
     
-    if (game.isBlackjack) {
-        NSLog(@"\nBLACK JACK! %@", game.hand);
-    } else if (game.isBusted) {
-        NSLog(@"\nBUSTED!\nHand score: %@\n%@", game.handScore, game.hand);
-    }
+    [self outputResultsForPlayer:player1];
+    [self outputResultsForPlayer:player2];
+    
     return YES;
 }
 
