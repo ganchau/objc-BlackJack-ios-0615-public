@@ -44,40 +44,50 @@
 
 - (NSNumber *)handScore
 {
+    _handScore = @0;
+    NSUInteger aceCards = 0;
+    
     for (FISPlayingCard *card in self.hand) {
         if ([card.rank integerValue] == 1) {
-            if ([_handScore integerValue] + 11 <= 21) {
-                _handScore = @([_handScore integerValue] + 11);
-            } else {
-                _handScore = @([_handScore integerValue] + 1);
-            }
+            aceCards++;
+            _handScore = @([_handScore integerValue] + 1);
         } else if ([card.rank integerValue] > 10) {
             _handScore = @([_handScore integerValue] + 10);
         } else {
             _handScore = @([_handScore integerValue] + [card.rank integerValue]);
         }
     }
-    NSLog(@"HAND SCORE: %@", _handScore);
+    
+    if (aceCards > 0) {
+        for (NSUInteger i=0; i<=aceCards; i++) {
+            if ([_handScore integerValue] + 10 <= 21) {
+                _handScore = @([_handScore integerValue] + 10);
+            }
+        }
+    }
+    
     return _handScore;
 }
 
 - (void)drawCard
 {
-    FISCard *randomCard = [self.playingCardDeck drawRandomCard];
-    [self.hand addObject:(FISPlayingCard *)randomCard];
+    FISPlayingCard *randomCard = [self.playingCardDeck drawRandomCard];
+    [self.hand addObject:randomCard];
 }
 
 - (void)deal
 {
-    while (self.hand.count < 2 && !self.isBusted) {
+    while (self.hand.count < 2) {
         [self drawCard];
     }
 }
 
 - (void)hit
 {    
-    if (self.hand.count >= 2 && !self.isBusted) {
-        [self drawCard];
+    if (self.hand.count > 0) {
+        if (!self.isBusted) {
+            [self drawCard];
+        }
     }
 }
 

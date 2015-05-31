@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Flatiron School. All rights reserved.
 //
 
-#import "FISCard.h"
+#import <Foundation/Foundation.h>
 
-@interface FISPlayingCard : FISCard
+@interface FISPlayingCard : NSObject
 
 @property (strong, nonatomic) NSString *suit;
 @property (strong, nonatomic) NSNumber *rank;

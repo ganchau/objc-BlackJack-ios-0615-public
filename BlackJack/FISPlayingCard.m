@@ -17,7 +17,7 @@
 
 + (NSArray *)validSuits
 {
-    return @[@"♥️", @"♠️", @"♣️", @"♦️"];
+    return @[@"♥", @"♣", @"♠", @"♦"];
 }
 
 - (void)setRank:(NSNumber *)rank
@@ -46,7 +46,7 @@
 // designated initializer
 - (instancetype)initWithSuit:(NSString *)suit rank:(NSNumber *)rank
 {
-    self = [super initWithMatched:NO faceUp:NO];
+    self = [super init];
     
     if (self) {
         if ([rank integerValue] >= 0 && [rank integerValue] < [FISPlayingCard validRanks].count) {
@@ -66,7 +66,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"Rank:%@ Suit:%@", self.rank, self.suit];
+    return [NSString stringWithFormat:@"Rank:%@ Suit:%@", [FISPlayingCard validRanks][[self.rank integerValue]], self.suit];
 }
 
 @end

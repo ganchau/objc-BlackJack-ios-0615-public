@@ -6,9 +6,13 @@
 //  Copyright (c) 2015 Flatiron School. All rights reserved.
 //
 
-#import "FISDeck.h"
+#import <Foundation/Foundation.h>
 #import "FISPlayingCard.h"
 
-@interface FISPlayingCardDeck : FISDeck
+@interface FISPlayingCardDeck : NSObject
+
+@property (strong, nonatomic) NSMutableArray *cards;
+
+- (FISPlayingCard *)drawRandomCard;
 
 @end

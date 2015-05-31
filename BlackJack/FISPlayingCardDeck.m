@@ -7,7 +7,6 @@
 //
 
 #import "FISPlayingCardDeck.h"
-#import "FISPlayingCard.h"
 
 @implementation FISPlayingCardDeck
 
@@ -16,6 +15,8 @@
     self = [super init];
         
     if (self) {
+        _cards = [@[] mutableCopy];
+        
         for (NSString *suit in [FISPlayingCard validSuits]) {
             for (NSUInteger rank = 1; rank < [FISPlayingCard validRanks].count; rank++) {
                 FISPlayingCard *card = [[FISPlayingCard alloc] initWithSuit:suit rank:@(rank)];
@@ -26,5 +27,18 @@
     
     return self;
 }
+
+- (FISPlayingCard *)drawRandomCard
+{
+    FISPlayingCard *randomCard = [[FISPlayingCard alloc] init];
+    
+    if (self.cards.count > 0) {
+        NSUInteger randomIndex = arc4random_uniform((unsigned)self.cards.count);
+        randomCard = self.cards[randomIndex];
+        [self.cards removeObjectAtIndex:randomIndex];
+    }
+    return randomCard;
+}
+
 
 @end
