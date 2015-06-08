@@ -20,7 +20,7 @@
         for (NSString *suit in [FISPlayingCard validSuits]) {
             for (NSUInteger rank = 1; rank < [FISPlayingCard validRanks].count; rank++) {
                 FISPlayingCard *card = [[FISPlayingCard alloc] initWithSuit:suit rank:@(rank)];
-                [self.cards addObject:card];
+                [_cards addObject:card];
             }
         }
     }
