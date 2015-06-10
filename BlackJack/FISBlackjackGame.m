@@ -10,28 +10,24 @@
 
 @implementation FISBlackjackGame
 
-// designated initializer
 - (instancetype)init
 {
-    self = [super init];
-    
-    if (self) {
-        _playingCardDeck = [[FISPlayingCardDeck alloc] init];
-        _handScore = @0;
-        _hand = [@[] mutableCopy];
-        _isBusted = NO;
-        _isBlackjack = NO;
-    }
+    self = [self initUsingDeck:[[FISPlayingCardDeck alloc] init]];
         
     return self;
 }
 
+// designated initializer
 - (instancetype)initUsingDeck:(FISPlayingCardDeck *)deck
 {
-    self = [self init];
+    self = [super init];
     
     if (self) {
         _playingCardDeck = deck;
+        _handScore = @0;
+        _hand = [@[] mutableCopy];
+        _isBusted = NO;
+        _isBlackjack = NO;
     }
     
     return self;

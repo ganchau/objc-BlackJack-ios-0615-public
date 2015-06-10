@@ -33,7 +33,7 @@
     FISPlayingCard *randomCard = [[FISPlayingCard alloc] init];
     
     if (self.cards.count > 0) {
-        NSUInteger randomIndex = arc4random_uniform((unsigned)self.cards.count);
+        NSUInteger randomIndex = arc4random_uniform((unsigned int)self.cards.count);
         randomCard = self.cards[randomIndex];
         [self.cards removeObjectAtIndex:randomIndex];
     }

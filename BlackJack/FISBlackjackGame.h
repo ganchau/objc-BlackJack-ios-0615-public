@@ -19,6 +19,6 @@
 
 - (void)deal; // should deal 2 new cards and add those cards to the hand.
 - (void)hit;  // should deal one additional card and add it card to the hand.
-- (instancetype)initUsingDeck:(FISPlayingCardDeck *)deck;
+- (instancetype)initUsingDeck:(FISPlayingCardDeck *)deck;  // designated initializer
 
 @end
